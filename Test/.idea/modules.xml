@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CommonLibrary/CommonLibrary.iml" filepath="$PROJECT_DIR$/CommonLibrary/CommonLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GuideBackgroundColorAnimation/GuideBackgroundColorAnimation.iml" filepath="$PROJECT_DIR$/GuideBackgroundColorAnimation/GuideBackgroundColorAnimation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CommonLibrary/GuideBackgroundColorAnimationLibrary/GuideBackgroundColorAnimationLibrary.iml" filepath="$PROJECT_DIR$/CommonLibrary/GuideBackgroundColorAnimationLibrary/GuideBackgroundColorAnimationLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CommonLibrary/ShimmerLibrary/ShimmerLibrary.iml" filepath="$PROJECT_DIR$/CommonLibrary/ShimmerLibrary/ShimmerLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Test.iml" filepath="$PROJECT_DIR$/Test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shimmer/shimmer.iml" filepath="$PROJECT_DIR$/shimmer/shimmer.iml" />
+    </modules>
+  </component>
+</project>
