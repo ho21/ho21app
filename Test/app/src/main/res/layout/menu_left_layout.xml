@@ -1,0 +1,83 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relative1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ccc"
+    android:orientation="vertical">
+
+        <RelativeLayout
+            android:gravity="left"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/material_deep_teal_500"
+            android:paddingTop="50dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            >
+        <ho21.com.test.RoundImageView
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/face"
+            android:id="@+id/view" />
+        <TextView
+
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:gravity="center_vertical"
+             android:text="happy for you"
+             android:textSize="16sp"
+             android:textColor="@color/abc_primary_text_disable_only_material_dark"
+            android:paddingLeft="10dp"
+            android:layout_alignBottom="@+id/view"
+            android:layout_toRightOf="@+id/view"
+            android:layout_toEndOf="@+id/view" />
+        </RelativeLayout>
+  
+
+        <TextView
+            android:id="@+id/news"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="团委活动"
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:id="@+id/read"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/news"
+            android:gravity="center_vertical"
+            android:text="消息订阅"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/pic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/read"
+            android:gravity="center_vertical"
+            android:text="校园美图"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/vedio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pic"
+            android:gravity="center_vertical"
+            android:text="在线视频"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/vedio"
+            android:gravity="center_vertical"
+            android:text="跳蚤市场"
+            android:textSize="16sp" />
+    </LinearLayout>
+
