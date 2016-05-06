@@ -5,35 +5,33 @@
     android:layout_height="match_parent"
     android:background="#ccc"
     android:orientation="vertical">
-
-        <RelativeLayout
+        <LinearLayout
             android:gravity="left"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/material_deep_teal_500"
+            android:background="@mipmap/img_topbox_bg"
             android:paddingTop="50dp"
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
+            android:orientation="vertical"
             >
         <ho21.com.test.RoundImageView
-                    android:layout_width="50sp"
+                    android:layout_width="100sp"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/face"
             android:id="@+id/view" />
         <TextView
-
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:gravity="center_vertical"
-             android:text="happy for you"
+             android:text="share the fun"
              android:textSize="16sp"
              android:textColor="@color/abc_primary_text_disable_only_material_dark"
             android:paddingLeft="10dp"
-            android:layout_alignBottom="@+id/view"
-            android:layout_toRightOf="@+id/view"
-            android:layout_toEndOf="@+id/view" />
-        </RelativeLayout>
+            android:paddingTop="10dp"
+       />
+        </LinearLayout>
   
 
         <TextView
