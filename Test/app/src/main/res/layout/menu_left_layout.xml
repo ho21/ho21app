@@ -3,7 +3,7 @@
     android:id="@+id/relative1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ccc"
+    android:background="#eee"
     android:orientation="vertical">
         <LinearLayout
             android:gravity="left"
@@ -42,22 +42,21 @@
             android:orientation="vertical">
 
 
-        <TextView
-            android:id="@+id/news"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:text="随便看看"
-            android:textSize="16sp"
-            android:layout_marginTop="10dp"
-            android:drawablePadding="20dp"
-            />
+        <!--<TextView-->
+            <!--android:id="@+id/news"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:text="随便看看"-->
+            <!--android:textSize="16sp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:drawablePadding="20dp"-->
+            <!--/>-->
 
         <TextView
             android:id="@+id/read"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/news"
             android:gravity="center_vertical"
             android:text=" 搞笑图片"
             android:textSize="16sp"
