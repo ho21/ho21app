@@ -34,13 +34,23 @@
         </LinearLayout>
   
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:orientation="vertical">
+
+
         <TextView
             android:id="@+id/news"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:text="团委活动"
+            android:text="随便看看"
             android:textSize="16sp"
+            android:layout_marginTop="10dp"
+            android:drawablePadding="20dp"
             />
 
         <TextView
@@ -49,8 +59,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/news"
             android:gravity="center_vertical"
-            android:text="消息订阅"
-            android:textSize="16sp" />
+            android:text=" 搞笑图片"
+            android:textSize="16sp"
+            android:layout_marginTop="30dp"
+            android:drawablePadding="20dp"/>
 
         <TextView
             android:id="@+id/pic"
@@ -58,24 +70,40 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/read"
             android:gravity="center_vertical"
-            android:text="校园美图"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/vedio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/pic"
-            android:gravity="center_vertical"
-            android:text="在线视频"
-            android:textSize="16sp" />
+            android:text="搞笑GIF"
+            android:textSize="16sp"
+            android:layout_marginTop="30dp"
+            android:drawablePadding="20dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/vedio"
+            android:layout_below="@+id/fun3"
             android:gravity="center_vertical"
-            android:text="跳蚤市场"
-            android:textSize="16sp" />
+            android:text="奇趣视觉"
+            android:textSize="16sp"
+            android:layout_marginTop="30dp"
+            android:drawablePadding="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pic2"
+            android:gravity="center_vertical"
+            android:text="异色图片"
+            android:textSize="16sp"
+            android:layout_marginTop="30dp"
+            android:drawablePadding="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pic1"
+            android:gravity="center_vertical"
+            android:text="福利图片"
+            android:textSize="16sp"
+            android:layout_marginTop="30dp"
+            android:drawablePadding="20dp"/>
+        </LinearLayout>
     </LinearLayout>
 
