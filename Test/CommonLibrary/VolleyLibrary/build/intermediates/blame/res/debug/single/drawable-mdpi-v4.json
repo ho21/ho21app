@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "D:\\MyProject\\ho21app\\Test\\volley\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_launcher.png",
+        "source": "D:\\MyProject\\ho21app\\Test\\volley\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\MyProject\\test\\Volley-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_launcher.png",
+        "source": "D:\\MyProject\\test\\Volley-master\\app\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
+    }
+]

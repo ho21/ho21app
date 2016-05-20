@@ -16,7 +16,7 @@
             android:paddingRight="10dp"
             android:orientation="vertical"
             >
-        <ho21.com.test.RoundImageView
+        <ho21.com.view.RoundImageView
                     android:layout_width="100sp"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/face"
