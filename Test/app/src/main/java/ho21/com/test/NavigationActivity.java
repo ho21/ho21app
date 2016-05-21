@@ -1,21 +1,16 @@
 package ho21.com.test;
 
-import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -28,6 +23,8 @@ public class NavigationActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ListAdapter adapter;
     private ImageView mImageView;
+    private RequestQueue queue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +34,7 @@ public class NavigationActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         // 设置布局管理器
         recyclerView.setLayoutManager(linearLayoutManager);
-        String url = "http://app.ho21.com/index.php/api/list";
+        String url = "http://app.ho21.com/index.php/api/list/1/1/6";
         JsonObjectRequest jsonRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
                     @Override
@@ -56,7 +53,8 @@ public class NavigationActivity extends AppCompatActivity {
                         error.printStackTrace();
                     }
                 });
-        Volley.newRequestQueue(this).add(jsonRequest);
+        queue = Volley.newRequestQueue(getApplicationContext());
+        queue.add(jsonRequest);
     }
 
     @Override
@@ -64,8 +62,6 @@ public class NavigationActivity extends AppCompatActivity {
         menu.add(0,1,100,"设置");
         return super.onCreateOptionsMenu(menu);
     }
-
-
 }
 
 

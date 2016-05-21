@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageRequest;
@@ -22,6 +23,8 @@ import org.json.JSONException;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     public JSONArray JAdata = null;
+    public int num = 0;
+    private RequestQueue queue;
 
     public ListAdapter(JSONArray JAdata) {
         this.JAdata = JAdata;
@@ -39,6 +42,9 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         try {
+
+            num++;
+            System.out.println("---------"+holder+"--------------"+num);
             String title = JAdata.getJSONObject(position).getString("images_title");
             holder.mTextView.setText(title);
             String url = JAdata.getJSONObject(position).getString("images_url");
@@ -55,8 +61,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                     error.printStackTrace();
                 }
             });
-            Volley.newRequestQueue(holder.mPic.getContext()).add(imgRequest);
-
+            queue = Volley.newRequestQueue(holder.mPic.getContext());
+            queue.add(imgRequest);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -77,6 +83,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             mPic = (ImageView) view.findViewById(R.id.images_src);
         }
     }
+
 }
 
 
