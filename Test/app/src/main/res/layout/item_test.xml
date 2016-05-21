@@ -11,24 +11,15 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/imageView2"
-        android:src="@mipmap/sample"
-        android:scaleType="centerCrop" />
+        android:id="@+id/images_src"
+        android:src="@mipmap/loading"
+        android:scaleType="center" />
 
     <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="没错，就是我干的，你拿我怎么着啊你拿我怎么着啊你拿我怎么着啊你拿我怎么着啊你拿我怎么着啊你拿我怎么着啊你拿我怎么着啊你拿我怎么着啊你拿我怎么着啊？？？"
-        android:layout_marginTop="10dp"
-        />
-    <TextView
-        android:id="@+id/tvUrl"
+        android:id="@+id/images_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:lines="2"
-        android:text="sad " />
+        android:text="标题 " />
 
 
 

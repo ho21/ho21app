@@ -26,6 +26,7 @@ import com.android.volley.VolleyLog;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
+import android.widget.ImageView;
 
 /**
  * A canned request for getting an image at a given URL and calling
@@ -57,17 +58,17 @@ public class ImageRequest extends Request<Bitmap> {
      * ratio. If both width and height are nonzero, the image will be decoded to
      * be fit in the rectangle of dimensions width x height while keeping its
      * aspect ratio.
-     *
-     * @param url URL of the image
+     *  @param url URL of the image
      * @param listener Listener to receive the decoded bitmap
      * @param maxWidth Maximum width to decode this bitmap to, or zero for none
      * @param maxHeight Maximum height to decode this bitmap to, or zero for
-     *            none
+*            none
+     * @param fitXy
      * @param decodeConfig Format to decode the bitmap to
      * @param errorListener Error listener, or null to ignore errors
      */
     public ImageRequest(String url, Response.Listener<Bitmap> listener, int maxWidth, int maxHeight,
-            Config decodeConfig, Response.ErrorListener errorListener) {
+                        ImageView.ScaleType fitXy, Config decodeConfig, Response.ErrorListener errorListener) {
         super(Method.GET, url, errorListener);
         setRetryPolicy(
                 new DefaultRetryPolicy(IMAGE_TIMEOUT_MS, IMAGE_MAX_RETRIES, IMAGE_BACKOFF_MULT));

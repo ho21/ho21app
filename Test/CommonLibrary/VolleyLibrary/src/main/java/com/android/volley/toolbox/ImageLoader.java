@@ -26,7 +26,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.ImageRequest;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -186,16 +185,16 @@ public class ImageLoader {
     public ImageContainer get(String requestUrl, ImageListener imageListener,
             int maxWidth, int maxHeight) {
         // only fulfill requests that were initiated from the main thread.
-    	//Èç¹ûÇëÇóÔÚÖ÷Ïß³Ì£¬Å×Òì³£
+    	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³Ì£ï¿½ï¿½ï¿½ï¿½ì³£
         throwIfNotOnMainThread();
-        //»ñÈ¡Í¼Æ¬»º´æÏà¹ØÐÅÏ¢
+        //ï¿½ï¿½È¡Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
         final String cacheKey = getCacheKey(requestUrl, maxWidth, maxHeight);
 
         // Try to look up the request in the cache of remote images.
-      //´ÓmCacheµÃµ½bitmap¶ÔÏó£¬Òò´Ë¿ÉÒÔ¸²Ð´ImageCache£¬Íê³ÉÍ¼Æ¬µÄÈý¼¶»º´æ£¬¼´ÔÚÔ­ÓÐµÄLruCacheÌí¼ÓÒ»¸öÈíÒýÓÃ»º´æ
+      //ï¿½ï¿½mCacheï¿½Ãµï¿½bitmapï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½ï¿½Ô¸ï¿½Ð´ImageCacheï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ£¬ï¿½ï¿½ï¿½ï¿½Ô­ï¿½Ðµï¿½LruCacheï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½
         Bitmap cachedBitmap = mCache.getBitmap(cacheKey);
         if (cachedBitmap != null) {
-        	 //µÃµ½»º´æ¶ÔÏó
+        	 //ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             // Return the cached bitmap.
             ImageContainer container = new ImageContainer(cachedBitmap, requestUrl, null, null);
             imageListener.onResponse(container, true);
@@ -203,13 +202,13 @@ public class ImageLoader {
         }
 
         // The bitmap did not exist in the cache, fetch it!
-        //»º´æÖÐÃ»ÓÐÊý¾ÝµÄ»°£¬ÔÚÍøÂçÉÏ¼ÓÔØ
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ÝµÄ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½
         ImageContainer imageContainer =
                 new ImageContainer(null, requestUrl, cacheKey, imageListener);
-        // Ê×ÏÈ¸üÐÂ¸Ãview£¬ÆäÖ¸¶¨ÁËdefaultImage
+        // ï¿½ï¿½ï¿½È¸ï¿½ï¿½Â¸ï¿½viewï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½defaultImage
         // Update the caller to let them know that they should use the default bitmap.
         imageListener.onResponse(imageContainer, true);
-        // ¸ù¾Ý¿ÉÒÔÈ¥¼ì²é¸ÃÇëÇóÊÇ·ñÒÑ¾­·¢Æð¹ý
+        // ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         // Check to see if a request is already in-flight.
         BatchedImageRequest request = mInFlightRequests.get(cacheKey);
         if (request != null) {
@@ -220,24 +219,24 @@ public class ImageLoader {
 
         // The request is not already in flight. Send the new request to the network and
         // track it.
-        //Èç¹ûÇëÇóÔø¾­Ã»ÓÐ·¢Æð¹ýµÄ»°£¬·¢ËÍ·ÝÐÂµÄÍøÂçÇëÇó
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Ð·ï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½Âµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         Request<?> newRequest =
             new ImageRequest(requestUrl, new Listener<Bitmap>() {
                 @Override
                 public void onResponse(Bitmap response) {
-                	//Èç¹ûÇëÇó³É¹¦
+                	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½
                 	onGetImageSuccess(cacheKey, response);
                 }
             }, maxWidth, maxHeight,
-            Config.RGB_565, new ErrorListener() {
+                    ImageView.ScaleType.FIT_XY, Config.RGB_565, new ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     onGetImageError(cacheKey, error);
                 }
             });
-      //Ìí¼ÓÖÁÇëÇó¶ÓÁÐÖÐ
+      //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         mRequestQueue.add(newRequest);
-      //Í¬Ò»Ìí¼Ó½ømap¼¯ºÏ£¬ÒÔ·½±ã¼ì²é¸ÃrequestÊÇ·ñÕýÔÚÇëÇóÍøÂç£¬¿ÉÒÔ½ÚÔ¼×ÊÔ´
+      //Í¬Ò»ï¿½ï¿½Ó½ï¿½mapï¿½ï¿½ï¿½Ï£ï¿½ï¿½Ô·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½requestï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç£¬ï¿½ï¿½ï¿½Ô½ï¿½Ô¼ï¿½ï¿½Ô´
         mInFlightRequests.put(cacheKey,
                 new BatchedImageRequest(newRequest, imageContainer));
         return imageContainer;
@@ -256,13 +255,13 @@ public class ImageLoader {
      * Handler for when an image was successfully loaded.
      * @param cacheKey The cache key that is associated with the image request.
      * @param response The bitmap that was returned from the network.
-     * ³É¹¦»ñÈ¡Í¼Æ¬²Ù×÷
+     * ï¿½É¹ï¿½ï¿½ï¿½È¡Í¼Æ¬ï¿½ï¿½ï¿½ï¿½
      */
     private void onGetImageSuccess(String cacheKey, Bitmap response) {
         // cache the image that was fetched.
-    	//»º´æÍ¼Æ¬
+    	//ï¿½ï¿½ï¿½ï¿½Í¼Æ¬
         mCache.putBitmap(cacheKey, response);
-        // ÇëÇóÍê³É£¬²»ÐèÒª¼ì²â
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É£ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½
         // remove the request from the list of in-flight requests.
         BatchedImageRequest request = mInFlightRequests.remove(cacheKey);
 
@@ -271,7 +270,7 @@ public class ImageLoader {
             request.mResponseBitmap = response;
 
             // Send the batched response
-            //´¦Àí½á¹û
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             batchResponse(cacheKey, request);
         }
     }
@@ -442,7 +441,7 @@ public class ImageLoader {
         mBatchedResponses.put(cacheKey, request);
         // If we don't already have a batch delivery runnable in flight, make a new one.
         // Note that this will be used to deliver responses to all callers in mBatchedResponses.
-        //Í¨¹ýhandler£¬·¢ËÍÒ»¸ö²Ù×÷
+        //Í¨ï¿½ï¿½handlerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (mRunnable == null) {
             mRunnable = new Runnable() {
                 @Override
@@ -457,10 +456,10 @@ public class ImageLoader {
                             }
                             if (bir.getError() == null) {
                                 container.mBitmap = bir.mResponseBitmap;
-                              //¸üÐÂ½á¹û
+                              //ï¿½ï¿½ï¿½Â½ï¿½ï¿½
                                 container.mListener.onResponse(container, false);
                             } else {
-                            	//´¦ÀíÒì³£
+                            	//ï¿½ï¿½ï¿½ï¿½ï¿½ì³£
                                 container.mListener.onErrorResponse(bir.getError());
                             }
                         }
@@ -471,8 +470,8 @@ public class ImageLoader {
 
             };
             // Post the runnable.
-            // mHandler¶ÔÓ¦µÄlooperÊÇMainLooper£¬Òò´Ë±»MainLooper.loop()µÃµ½¸Ãmessage£¬¹Ê¸Ãrunnable²Ù×÷ÔÚÖ÷Ïß³ÌÖÐÖ´ÐÐ£¬
-            //Ë¢ÐÂ½çÃæ²¼¾Ö
+            // mHandlerï¿½ï¿½Ó¦ï¿½ï¿½looperï¿½ï¿½MainLooperï¿½ï¿½ï¿½ï¿½Ë±ï¿½MainLooper.loop()ï¿½Ãµï¿½ï¿½ï¿½messageï¿½ï¿½ï¿½Ê¸ï¿½runnableï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½Ö´ï¿½Ð£ï¿½
+            //Ë¢ï¿½Â½ï¿½ï¿½æ²¼ï¿½ï¿½
             mHandler.postDelayed(mRunnable, mBatchResponseDelayMs);
         }
     }

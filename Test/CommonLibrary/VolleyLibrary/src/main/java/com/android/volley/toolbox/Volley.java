@@ -37,7 +37,7 @@ public class Volley {
 
 	/**
 	 * Creates a default instance of the worker pool and calls {@link RequestQueue#start()} on it.
-	 *»ñÈ¡Volley¶ÔÏó
+	 *ï¿½ï¿½È¡Volleyï¿½ï¿½ï¿½ï¿½
 	 * @param context A {@link Context} to use for creating the cache dir.
 	 * @param stack An {@link HttpStack} to use for the network, or null for default.
 	 * @return A started {@link RequestQueue} instance.
@@ -71,12 +71,12 @@ public class Volley {
 
 		return queue;
 		/*
-		 * ÊµÀý»¯Ò»¸öRequestQueue£¬ÆäÖÐstart()Ö÷ÒªÍê³ÉÏà¹Ø¹¤×÷Ïß³ÌµÄ¿ªÆô£¬
-		 * ±ÈÈç¿ªÆô»º´æÏß³ÌCacheDispatcherÏÈÍê³É»º´æÎÄ¼þµÄÉ¨Ãè£¬ »¹°üÀ¨¿ªÆô¶à¸öNetworkDispatcher·ÃÎÊÍøÂçÏß³Ì£¬
-		 * ¸Ã¶à¸öÍøÂçÏß³Ì½«´Ó Í¬Ò»¸ö ÍøÂç×èÈû¶ÓÁÐÖÐ¶ÁÈ¡ÏûÏ¢
+		 * Êµï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½RequestQueueï¿½ï¿½ï¿½ï¿½ï¿½ï¿½start()ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½ï¿½ß³ÌµÄ¿ï¿½ï¿½ï¿½ï¿½ï¿½
+		 * ï¿½ï¿½ï¿½ç¿ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½CacheDispatcherï¿½ï¿½ï¿½ï¿½É»ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½É¨ï¿½è£¬ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½NetworkDispatcherï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³Ì£ï¿½
+		 * ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³Ì½ï¿½ï¿½ï¿½ Í¬Ò»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½È¡ï¿½ï¿½Ï¢
 		 * 
-		 * ´Ë´¦¿É¼û£¬start()ÒÑ¾­¿ªÆô£¬ËùÓÐÎÒÃÇ²»ÓÃÊÖ¶¯µÄÈ¥µ÷ÓÃ¸Ã·½·¨£¬ÔÚstart()·½·¨ÖÐÈç¹û´æÔÚ¹¤×÷Ïß³ÌÓ¦¸ÃÊ×ÏÈÖÕÖ¹£¬²¢ÖØÐÂÊµÀý»¯¹¤×÷Ïß³Ì²¢¿ªÆô
-		 * ÔÚ·ÃÎÊÍøÂçºÜÆµ·±£¬¶øÓÖÖØ¸´µ÷ÓÃstart()£¬ÊÆ±Ø»áµ¼ÖÂÐÔÄÜµÄÏûºÄ£»µ«ÊÇÈç¹ûÔÚ·ÃÎÊÍøÂçºÜÉÙÊ±£¬µ÷ÓÃstop()·½·¨£¬Í£Ö¹¶à¸öÏß³Ì£¬È»ºóµ÷ÓÃstart(),·´¶øÓÖ¿ÉÒÔÌá¸ßÐÔÄÜ£¬¾ßÌå¿ÉÕÛÖÐÑ¡Ôñ
+		 * ï¿½Ë´ï¿½ï¿½É¼ï¿½ï¿½ï¿½start()ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç²ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½È¥ï¿½ï¿½ï¿½Ã¸Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½start()ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½ï¿½ß³ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³Ì²ï¿½ï¿½ï¿½ï¿½ï¿½
+		 * ï¿½Ú·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½start()ï¿½ï¿½ï¿½Æ±Ø»áµ¼ï¿½ï¿½ï¿½ï¿½ï¿½Üµï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½stop()ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£Ö¹ï¿½ï¿½ï¿½ï¿½ß³Ì£ï¿½È»ï¿½ï¿½ï¿½ï¿½ï¿½start(),ï¿½ï¿½ï¿½ï¿½ï¿½Ö¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½
 		 */
 	}
 
