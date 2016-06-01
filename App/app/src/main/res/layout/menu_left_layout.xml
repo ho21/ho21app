@@ -1,0 +1,105 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relative1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eee"
+    android:orientation="vertical">
+
+        <LinearLayout
+            android:gravity="left"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/img_topbox_bg"
+            android:paddingTop="50dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:orientation="vertical">
+
+        <ho21.com.app.view.RoundImageView
+            android:layout_width="100sp"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/face"
+        />
+
+        <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:gravity="center_vertical"
+             android:text="share the fun"
+             android:textSize="16sp"
+             android:textColor="@color/abc_primary_text_disable_only_material_dark"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+       />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:orientation="vertical">
+        <!--<TextView-->
+            <!--android:id="@+id/news"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:text="随便看看"-->
+            <!--android:textSize="16sp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:drawablePadding="20dp"-->
+            <!--/>-->
+        <TextView
+            android:id="@+id/read"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text=" 搞笑图片"
+            android:textSize="16sp"
+            android:layout_marginTop="30dp"
+            android:drawablePadding="20dp"/>
+
+        <TextView
+            android:id="@+id/pic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/read"
+            android:gravity="center_vertical"
+            android:text="搞笑GIF"
+            android:textSize="16sp"
+            android:layout_marginTop="30dp"
+            android:drawablePadding="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fun3"
+            android:gravity="center_vertical"
+            android:text="奇趣视觉"
+            android:textSize="16sp"
+            android:layout_marginTop="30dp"
+            android:drawablePadding="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pic2"
+            android:gravity="center_vertical"
+            android:text="异色图片"
+            android:textSize="16sp"
+            android:layout_marginTop="30dp"
+            android:drawablePadding="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pic1"
+            android:gravity="center_vertical"
+            android:text="福利图片"
+            android:textSize="16sp"
+            android:layout_marginTop="30dp"
+            android:drawablePadding="20dp"/>
+        </LinearLayout>
+    </LinearLayout>
+

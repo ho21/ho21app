@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.volley.test">
+    package="com.example.volley.test" >
 
-    <uses-sdk android:minSdkVersion="3" android:targetSdkVersion="16" />
+    <uses-sdk
+        android:minSdkVersion="3"
+        android:targetSdkVersion="16" />
+
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:functionalTest="false"
+        android:handleProfiling="false"
+        android:label="Tests for com.example.volley.test"
+        android:targetPackage="com.example.volley.test" />
 
     <application>
         <uses-library android:name="android.test.runner" />
     </application>
 
-    <instrumentation android:name="android.test.InstrumentationTestRunner"
-                     android:targetPackage="com.example.volley"
-                     android:handleProfiling="false"
-                     android:functionalTest="false"
-                     android:label="Tests for com.example.volley"/>
 </manifest>

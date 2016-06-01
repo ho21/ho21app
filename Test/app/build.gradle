@@ -18,6 +18,16 @@ android {
         }
     }
 }
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+    }
+}
+
+apply plugin: 'com.neenbedankt.android-apt'
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -27,4 +37,10 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:22.2.1'
     compile 'com.android.support:support-v4:18.0.0'
     compile project(path: ':CommonLibrary:VolleyLibrary')
+//    compile 'com.github.ybq:Android-SpinKit:1.0.1'
+    compile project(path: ':CommonLibrary:LoadingLibrary')
+//    compile 'com.jakewharton:butterknife:6.1.0'
+    compile 'com.jakewharton:butterknife:8.0.1'
+    apt 'com.jakewharton:butterknife-compiler:8.0.1'
+    compile 'com.android.support:cardview-v7:22.2.0'
 }

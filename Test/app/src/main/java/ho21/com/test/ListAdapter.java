@@ -3,28 +3,34 @@ package ho21.com.test;
 /**
  * Created by Administrator on 2016/4/30 0030.
  */
-import android.graphics.Bitmap;
+
 import android.graphics.Color;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.ImageRequest;
-import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     public JSONArray JAdata = null;
     public int num = 0;
     private RequestQueue queue;
+    private int lastPosition = -1;
+    private int page = 1;
+    private boolean isFirstRow;
+    private boolean isLastRow;
 
     public ListAdapter(JSONArray JAdata) {
         this.JAdata = JAdata;
@@ -39,30 +45,36 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         return vh;
     }
 
+    private void setAnimation(View viewToAnimate, int position) {
+        if (position > lastPosition) {
+            Animation animation = AnimationUtils.loadAnimation(viewToAnimate.getContext(), R.anim.item_bottom_in);
+            viewToAnimate.startAnimation(animation);
+            lastPosition = position;
+        }
+    }
+
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         try {
-
-            num++;
-            System.out.println("---------"+holder+"--------------"+num);
             String title = JAdata.getJSONObject(position).getString("images_title");
             holder.mTextView.setText(title);
-            String url = JAdata.getJSONObject(position).getString("images_url");
-            ImageRequest imgRequest = new ImageRequest(url,
-                    new Response.Listener<Bitmap>() {
-                        @Override
-                        public void onResponse(Bitmap response) {
-                            holder.mPic.setImageBitmap(response);
-                        }
-                    }, 0, 0, ImageView.ScaleType.FIT_XY, Bitmap.Config.ARGB_8888, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    holder.mPic.setBackgroundColor(Color.parseColor("#ff0000"));
-                    error.printStackTrace();
-                }
-            });
-            queue = Volley.newRequestQueue(holder.mPic.getContext());
-            queue.add(imgRequest);
+            setAnimation(holder.card, position);
+//            String url = JAdata.getJSONObject(position).getString("images_url");
+//            ImageRequest imgRequest = new ImageRequest(url,
+//                    new Response.Listener<Bitmap>() {
+//                        @Override
+//                        public void onResponse(Bitmap response) {
+//                            holder.mPic.setImageBitmap(response);
+//                        }
+//                    }, 0, 0, ImageView.ScaleType.FIT_XY, Bitmap.Config.ARGB_8888, new Response.ErrorListener() {
+//                @Override
+//                public void onErrorResponse(VolleyError error) {
+//                    holder.mPic.setBackgroundColor(Color.parseColor("#ff0000"));
+//                    error.printStackTrace();
+//                }
+//            });
+//            queue = Volley.newRequestQueue(holder.mPic.getContext());
+//            queue.add(imgRequest);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -75,14 +87,19 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     //自定义的ViewHolder，持有每个Item的的所有界面元素
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView mTextView;
-        public ImageView mPic;
+
+        @BindView(R.id.images_title) TextView mTextView;
+        @BindView(R.id.images_src) ImageView mPic;
+        @BindView(R.id.card) CardView card;
+
         public ViewHolder(View view){
             super(view);
-            mTextView = (TextView) view.findViewById(R.id.images_title);
-            mPic = (ImageView) view.findViewById(R.id.images_src);
+            ButterKnife.bind(this,view);
+            mTextView.setPadding(30,30,30,30);
+            mTextView.setBackgroundColor(Color.argb(132, 0, 0, 0));
         }
     }
+
 
 }
 

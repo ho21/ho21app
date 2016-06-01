@@ -18,7 +18,8 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.widget.ImageView;
 
-import ho21.com.test.R;
+import ho21.com.test.R
+		;
 
 //import com.zhy.variousshapeimageview.R;
 

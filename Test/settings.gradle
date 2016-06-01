@@ -3,5 +3,5 @@ include ':app',
         ':CommonLibrary:ShimmerLibrary',
         ':GuideBackgroundColorAnimation',
         ':CommonLibrary:GuideBackgroundColorAnimationLibrary',
-        ':CommonLibrary:VolleyLibrary'
+        ':CommonLibrary:VolleyLibrary', 'CommonLibrary:LoadingLibrary'
 

@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/CommonLibrary/CommonLibrary.iml" filepath="$PROJECT_DIR$/CommonLibrary/CommonLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/GuideBackgroundColorAnimation/GuideBackgroundColorAnimation.iml" filepath="$PROJECT_DIR$/GuideBackgroundColorAnimation/GuideBackgroundColorAnimation.iml" />
       <module fileurl="file://$PROJECT_DIR$/CommonLibrary/GuideBackgroundColorAnimationLibrary/GuideBackgroundColorAnimationLibrary.iml" filepath="$PROJECT_DIR$/CommonLibrary/GuideBackgroundColorAnimationLibrary/GuideBackgroundColorAnimationLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CommonLibrary/LoadingLibrary/LoadingLibrary.iml" filepath="$PROJECT_DIR$/CommonLibrary/LoadingLibrary/LoadingLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/CommonLibrary/ShimmerLibrary/ShimmerLibrary.iml" filepath="$PROJECT_DIR$/CommonLibrary/ShimmerLibrary/ShimmerLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/Test.iml" filepath="$PROJECT_DIR$/Test.iml" />
       <module fileurl="file://$PROJECT_DIR$/CommonLibrary/VolleyLibrary/VolleyLibrary.iml" filepath="$PROJECT_DIR$/CommonLibrary/VolleyLibrary/VolleyLibrary.iml" />
