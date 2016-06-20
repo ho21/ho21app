@@ -4,34 +4,18 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <FrameLayout
-        android:id="@+id/content_frame"
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent" />
 
-        <com.victor.loading.rotate.RotateLoading
-            android:id="@+id/rotateloading"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_centerInParent="true"
-            app:loading_speed="11"
-            app:loading_width="5dp"
-            android:layout_gravity="center"
-            android:textColor="@color/material_deep_teal_500"/>
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="vertical" />
-
-    </FrameLayout>
-
-    <include layout="@layout/menu_left_layout"
-        android:layout_width="200dp"
+    <FrameLayout
+        android:id="@+id/menu_container"
+        android:layout_width="240dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-    />
+        />
 
 </android.support.v4.widget.DrawerLayout>
 

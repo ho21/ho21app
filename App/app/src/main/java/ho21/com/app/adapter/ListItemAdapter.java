@@ -15,28 +15,34 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.volley.RequestQueue;
-
-import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ho21.com.app.activity.R;
 
 public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ViewHolder> {
-    public JSONArray JAdata = null;
-    public int num = 0;
-    private RequestQueue queue;
-    private int lastPosition = -1;
-    private int page = 1;
-    private boolean isFirstRow;
-    private boolean isLastRow;
 
-    public ListItemAdapter(JSONArray JAdata) {
-        this.JAdata = JAdata;
-        System.out.println(JAdata.toString());
-        System.out.println(JAdata.length());
+    private int lastPosition = -1;
+    private List<JSONObject> data;
+
+    public void ListItemAdapter(List<JSONObject> data){
+        this.data = data;
+    }
+
+    public void setData(List<JSONObject> getData) {
+        this.data = getData;
+    }
+
+    public void addData(List<JSONObject> getData) {
+        this.data.addAll(getData);
+    }
+
+    public ListItemAdapter(List<JSONObject> getData) {
+        this.data = getData;
     }
 
     @Override
@@ -57,25 +63,9 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ViewHo
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         try {
-            String title = JAdata.getJSONObject(position).getString("images_title");
-            holder.mTextView.setText(title);
-            setAnimation(holder.card, position);
-//            String url = JAdata.getJSONObject(position).getString("images_url");
-//            ImageRequest imgRequest = new ImageRequest(url,
-//                    new Response.Listener<Bitmap>() {
-//                        @Override
-//                        public void onResponse(Bitmap response) {
-//                            holder.mPic.setImageBitmap(response);
-//                        }
-//                    }, 0, 0, ImageView.ScaleType.FIT_XY, Bitmap.Config.ARGB_8888, new Response.ErrorListener() {
-//                @Override
-//                public void onErrorResponse(VolleyError error) {
-//                    holder.mPic.setBackgroundColor(Color.parseColor("#ff0000"));
-//                    error.printStackTrace();
-//                }
-//            });
-//            queue = Volley.newRequestQueue(holder.mPic.getContext());
-//            queue.add(imgRequest);
+                String title = data.get(position).getString("images_title");
+                holder.mTextView.setText(title);
+//
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -83,7 +73,8 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return JAdata.length();
+
+        return data.size();
     }
 
     //自定义的ViewHolder，持有每个Item的的所有界面元素

@@ -1,91 +1,39 @@
 package ho21.com.app.activity;
 
 import android.app.Activity;
-import android.graphics.Color;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.v4.widget.DrawerLayout;
 import android.view.KeyEvent;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-import com.victor.loading.rotate.RotateLoading;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import butterknife.BindView;
 import butterknife.ButterKnife;
-import ho21.com.app.adapter.ListItemAdapter;
+import ho21.com.app.fragment.ListFragment;
+import ho21.com.app.fragment.MenuFragment;
+
+import static android.widget.Toast.LENGTH_SHORT;
 
 public class MainActivity extends Activity {
 
-    private ListItemAdapter adapter;
-    private RequestQueue queue;
-
-    @BindView(R.id.rotateloading) RotateLoading rotateLoading;
-    @BindView(R.id.recyclerView) RecyclerView recyclerView;
+    FragmentTransaction transaction;
+    DrawerLayout mDrawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         ButterKnife.bind(this);
-        rotateLoading.setLoadingColor(Color.parseColor("#0000ff"));
-        rotateLoading.start();
         initData();
     }
 
     private void initData() {
-        // 设置布局管理器
-        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        // 线性布局管理器
-        recyclerView.setLayoutManager(linearLayoutManager);
-        //请求api填充api
-        String url = "http://fun.ho21.com/index.php/api/list/1/1/6";
-        JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    rotateLoading.stop();
-                    JSONArray JAData = response.getJSONArray("data");
-                    adapter = new ListItemAdapter(JAData);
-                    recyclerView.setAdapter(adapter);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-            }
-        });
-        queue = Volley.newRequestQueue(getApplicationContext());
-        queue.add(jsonRequest);
-        /*滚动监听*/
-        recyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-            }
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                int firstVisiableItem =  linearLayoutManager.findFirstVisibleItemPosition();
-                int lastVisibleItem =  linearLayoutManager.findLastVisibleItemPosition();
-                int totalItemCount = linearLayoutManager.getItemCount();
-                if(lastVisibleItem>=totalItemCount-1&&dy>0){
-                    Toast.makeText(getApplicationContext(),"加载中...",Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+        transaction = getFragmentManager().beginTransaction();
+        MenuFragment menuFragment = new MenuFragment();
+        ListFragment listFragment = new ListFragment();
+        transaction.replace(R.id.menu_container,menuFragment);
+        transaction.replace(R.id.container,listFragment);
+        transaction.commit();
+        transaction.
     }
 
     private long exitTime;
@@ -94,7 +42,7 @@ public class MainActivity extends Activity {
         if (keyCode == KeyEvent.KEYCODE_BACK
                 && event.getAction() == KeyEvent.ACTION_DOWN) {
             if ((System.currentTimeMillis() - exitTime) > 2000) {
-                Toast.makeText(this,"再按一次退出程序",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"再按一次退出程序", LENGTH_SHORT).show();
                 exitTime = System.currentTimeMillis();
             } else {
                 finish();
@@ -103,5 +51,15 @@ public class MainActivity extends Activity {
         }
         return super.onKeyDown(keyCode, event);
     }
+
+    public void closeDrawer() {
+        mDrawerLayout.closeDrawers();
+    }
+
+//    public void replaceFragment(int id,Fragment fragment) {
+////        transaction = getFragmentManager().beginTransaction();
+//        FragmentTransaction replace = transaction.replace(id, fragment);
+//        transaction.commit();
+//    }
 
 }

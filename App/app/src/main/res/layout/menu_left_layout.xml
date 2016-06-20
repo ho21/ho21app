@@ -39,7 +39,8 @@
             android:layout_height="wrap_content"
             android:paddingLeft="20dp"
             android:paddingTop="20dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:id="@+id/menu_list">
         <!--<TextView-->
             <!--android:id="@+id/news"-->
             <!--android:layout_width="match_parent"-->
@@ -51,25 +52,28 @@
             <!--android:drawablePadding="20dp"-->
             <!--/>-->
         <TextView
-            android:id="@+id/read"
+            android:id="@+id/fun_pic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:text=" 搞笑图片"
             android:textSize="16sp"
             android:layout_marginTop="30dp"
-            android:drawablePadding="20dp"/>
+            android:drawablePadding="20dp"
+            android:onClick="LoadList"/>
 
         <TextView
             android:id="@+id/pic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/read"
+            android:layout_below="@id/fun_pic"
             android:gravity="center_vertical"
             android:text="搞笑GIF"
             android:textSize="16sp"
             android:layout_marginTop="30dp"
-            android:drawablePadding="20dp"/>
+            android:drawablePadding="20dp"
+            android:onClick="LoadList"
+            />
 
         <TextView
             android:layout_width="match_parent"
@@ -79,7 +83,9 @@
             android:text="奇趣视觉"
             android:textSize="16sp"
             android:layout_marginTop="30dp"
-            android:drawablePadding="20dp"/>
+            android:drawablePadding="20dp"
+            android:onClick="LoadList"
+            />
 
         <TextView
             android:layout_width="match_parent"
@@ -89,7 +95,9 @@
             android:text="异色图片"
             android:textSize="16sp"
             android:layout_marginTop="30dp"
-            android:drawablePadding="20dp"/>
+            android:drawablePadding="20dp"
+            android:onClick="LoadList"
+            />
 
         <TextView
             android:layout_width="match_parent"
@@ -99,7 +107,9 @@
             android:text="福利图片"
             android:textSize="16sp"
             android:layout_marginTop="30dp"
-            android:drawablePadding="20dp"/>
+            android:drawablePadding="20dp"
+            android:onClick="LoadList"
+            />
         </LinearLayout>
     </LinearLayout>
 
