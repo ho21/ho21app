@@ -34,6 +34,7 @@ import ho21.com.app.adapter.ListItemAdapter;
  */
 public class ListFragment extends Fragment {
 
+    int id = 1;
     int page = 1;
     RecyclerView recyclerView;
     ListItemAdapter listItemAdapter;
@@ -41,20 +42,27 @@ public class ListFragment extends Fragment {
     boolean loding = false;
     RotateLoading rotateloading;
 
+    public ListFragment() {
+        this.id = 1;
+    }
+    public ListFragment(int id) {
+        this.id = id;
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
         final List<JSONObject> list = new ArrayList();
         View view = inflater.inflate(R.layout.list_main, container, false);
         rotateloading = (RotateLoading) view.findViewById(R.id.rotateloading);
-        rotateloading.setLoadingColor(Color.parseColor("#0000ff"));
+        rotateloading.setLoadingColor(Color.parseColor("#EF8320"));
         rotateloading.start();
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
         //请求api填充api
-        String url = "http://fun.ho21.com/index.php/api/list/1/1/6";
+        String url = "http://fun.ho21.com/index.php/api/list/"+id+"/"+page+"/6";
         JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -95,7 +103,7 @@ public class ListFragment extends Fragment {
                     page++;
                     loding = true;
                     //请求api填充api
-                    String url = "http://fun.ho21.com/index.php/api/list/1/"+page+"/6";
+                    String url = "http://fun.ho21.com/index.php/api/list/"+id+"/"+page+"/6";
                     JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {

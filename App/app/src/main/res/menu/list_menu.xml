@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.jph.ab.MainActivity">
+    <item
+        android:id="@+id/setting"
+        android:orderInCategory="100"
+        android:title="设置"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/refresh"
+        android:orderInCategory="100"
+        android:title="/刷新"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/cancle2"
+        android:orderInCategory="100"
+        android:title="删除"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/play"
+        android:orderInCategory="100"
+        android:title="播放"
+        app:showAsAction="never"/>
+</menu>

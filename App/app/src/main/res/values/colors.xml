@@ -3,4 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="Ho21Bg">#EF8320</color>
+    <color name="Ho21TitleText">#FFFFFF</color>
+    <color name="Ho21Off">#C65209</color>
 </resources>

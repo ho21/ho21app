@@ -1,6 +1,6 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/relative1"
+    android:id="@+id/left_menu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#eee"
@@ -15,9 +15,10 @@
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:id="@+id/linearLayout">
 
-        <ho21.com.app.view.RoundImageView
+                <ho21.com.app.view.RoundImageView
             android:layout_width="100sp"
             android:layout_height="wrap_content"
             android:src="@mipmap/face"
@@ -40,7 +41,10 @@
             android:paddingLeft="20dp"
             android:paddingTop="20dp"
             android:orientation="vertical"
-            android:id="@+id/menu_list">
+            android:id="@+id/menu_list"
+            android:layout_below="@+id/linearLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
         <!--<TextView-->
             <!--android:id="@+id/news"-->
             <!--android:layout_width="match_parent"-->
@@ -52,64 +56,83 @@
             <!--android:drawablePadding="20dp"-->
             <!--/>-->
         <TextView
-            android:id="@+id/fun_pic"
+            android:id="@+id/funny_pic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:text=" 搞笑图片"
+            android:text="&#xe629; 搞笑图片"
             android:textSize="16sp"
             android:layout_marginTop="30dp"
             android:drawablePadding="20dp"
-            android:onClick="LoadList"/>
+            />
 
         <TextView
-            android:id="@+id/pic"
+            android:id="@+id/gif_pic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/fun_pic"
+            android:layout_below="@id/funny_pic"
             android:gravity="center_vertical"
-            android:text="搞笑GIF"
+            android:text="&#xe614; 搞笑GIF"
             android:textSize="16sp"
             android:layout_marginTop="30dp"
             android:drawablePadding="20dp"
-            android:onClick="LoadList"
+            />
+
+        <TextView
+            android:id="@+id/vision_pic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gif_pic"
+            android:gravity="center_vertical"
+            android:text="&#xe601; 奇趣视觉"
+            android:textSize="16sp"
+            android:layout_marginTop="30dp"
+            android:drawablePadding="20dp"
             />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/fun3"
+            android:layout_below="@+id/vision_pic"
             android:gravity="center_vertical"
-            android:text="奇趣视觉"
+            android:text="&#xe61a; 异色图片"
             android:textSize="16sp"
             android:layout_marginTop="30dp"
             android:drawablePadding="20dp"
-            android:onClick="LoadList"
             />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/pic2"
             android:gravity="center_vertical"
-            android:text="异色图片"
+            android:text="&#xe6fd; 福利图片"
             android:textSize="16sp"
             android:layout_marginTop="30dp"
             android:drawablePadding="20dp"
-            android:onClick="LoadList"
-            />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/pic1"
-            android:gravity="center_vertical"
-            android:text="福利图片"
-            android:textSize="16sp"
-            android:layout_marginTop="30dp"
-            android:drawablePadding="20dp"
-            android:onClick="LoadList"
             />
         </LinearLayout>
-    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&#xe613; 设置"
+                    android:textSize="16sp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:id="@+id/setting"
+                    android:textColor="#000000"
+                    />
+
+        </LinearLayout>
+
+
+</RelativeLayout>
 

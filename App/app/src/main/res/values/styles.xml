@@ -1,11 +1,63 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="Ho21.AppCompat" parent="Theme.AppCompat">
+
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
     </style>
 
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <!-- Base application theme. -->
+    <!--<style name="Ho21" parent="AppTheme.Base">-->
+
+        <!--&lt;!&ndash;<item name="android:actionBarStyle">@style/Ho21ActionBar</item>&ndash;&gt;-->
+        <!--&lt;!&ndash;<item name="android:actionBarStyle">@style/Ho21ActionBar</item>&ndash;&gt;-->
+        <!--&lt;!&ndash;<item name="android:actionBarTabTextStyle">@style/Ho21ActionBarTitleText</item>&ndash;&gt;-->
+        <!--&lt;!&ndash;<item name="actionMenuTextColor">#ff0000</item>&ndash;&gt;-->
+        <!--&lt;!&ndash;<item name="actionBarTabTextStyle">@style/Ho21ActionBarTitleText</item>&ndash;&gt;-->
+        <!--&lt;!&ndash;<item name="actionMenuTextColor">@color/Ho21TitleText</item>&ndash;&gt;-->
+        <!--&lt;!&ndash;<item name="android:actionMenuTextColor">@style/Ho21ActionBarTitleText</item>&ndash;&gt;-->
+        <!--&lt;!&ndash;<item name="actionMenuTextColor">@style/Ho21ActionBarTitleText</item>&ndash;&gt;-->
+    <!--</style>-->
+    <style name="Ho21ActionBar" parent="@android:style/Widget.DeviceDefault.ActionBar">
+        <!--<item name="android:titleTextStyle">@style/ActionBarTitle</item>-->
+        <!--<item name="android:background">@color/Ho21Bg</item>-->
+        <!--<item name="background">@color/Ho21Bg</item>-->
+        <!--<item name="actionBarTabTextStyle">@style/Ho21ActionBarTitleText</item>-->
+    </style>
+
+    <style name="ActionBarTitle" parent="@android:style/TextAppearance.Holo.Large">
+    <!--<item name="android:textColor">@android:color/holo_blue_bright</item>-->
+    <!--<item name="android:textSize">20sp</item>-->
+    </style>
+
+
+    <!-- ActionBar 标题文本 -->
+    <style name="Ho21ActionBarTitleText" parent="Theme.AppCompat">
+        <!--<item name="android:textColor">@color/Ho21TitleText</item>-->
+        <!--<item name="te">@color/Ho21TitleText</item>-->
+        <!--<item name="actionMenuTextColor">#ff0000</item>-->
+        <!-- 文本颜色属性textColor是可以配合支持库向后兼容的 -->
+    </style>
+
+    <style name="AppTheme.Base" parent="Theme.AppCompat.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <!--<item name="android:windowNoTitle">true</item>-->
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Ho21" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textColor">@color/Ho21TitleText</item>
+    </style>
 </resources>

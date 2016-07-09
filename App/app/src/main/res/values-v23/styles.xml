@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<style name="Ho21ActionBar" parent="Theme.AppCompat">-->
+        <!--<item name="android:background">@color/Ho21Bg</item>-->
+        <!--<item name="background">@color/Ho21Bg</item>-->
+        <!--<item name="android:titleTextColor">@color/Ho21TitleText</item>-->
+        <!--<item name="titleTextColor">@color/Ho21TitleText</item>-->
+    <!--</style>-->
+</resources>

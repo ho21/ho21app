@@ -18,19 +18,7 @@
             <option value="$PROJECT_DIR$/shimmer" />
           </set>
         </option>
-        <option name="myModules">
-          <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/CommonLibrary" />
-            <option value="$PROJECT_DIR$/CommonLibrary/GuideBackgroundColorAnimationLibrary" />
-            <option value="$PROJECT_DIR$/CommonLibrary/LoadingLibrary" />
-            <option value="$PROJECT_DIR$/CommonLibrary/ShimmerLibrary" />
-            <option value="$PROJECT_DIR$/CommonLibrary/VolleyLibrary" />
-            <option value="$PROJECT_DIR$/GuideBackgroundColorAnimation" />
-            <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/shimmer" />
-          </set>
-        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>
   </component>
