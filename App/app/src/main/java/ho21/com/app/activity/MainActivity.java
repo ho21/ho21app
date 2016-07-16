@@ -4,6 +4,7 @@ import android.app.FragmentTransaction;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -19,48 +20,40 @@ import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import ho21.com.app.fragment.HeaderFragment;
 import ho21.com.app.fragment.ListFragment;
 
 import static android.widget.Toast.LENGTH_SHORT;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends FragmentActivity implements View.OnClickListener {
 
     FragmentTransaction transaction;
     ListFragment listFragment;
-    ActionBar actionBar;
     @BindView(R.id.drawer_layout) DrawerLayout drawerLayout;
     @BindView(R.id.menu_list) LinearLayout leftMenuList;
     @BindView(R.id.setting) TextView setting;
-    @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.app_title) TextView app_title;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.main_container);
         ButterKnife.bind(this);
         initData();
     }
 
     private void initData() {
-        //设置导航栏图标
-        toolbar.setNavigationIcon(R.mipmap.menu_icon);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.openDrawer(GravityCompat.START);
-            }
-        });
         //左侧菜单列表
         leftMenuList = (LinearLayout) findViewById(R.id.menu_list);
-//        Typeface iconfont = Typeface.createFromAsset(getAssets(), "iconfont/iconfont.ttf");
+////        Typeface iconfont = Typeface.createFromAsset(getAssets(), "iconfont/iconfont.ttf");
         for (int i = 0; i < leftMenuList.getChildCount(); i++) {
             TextView item = (TextView) leftMenuList.getChildAt(i);
 //            item.setTypeface(iconfont);
             item.setOnClickListener(this);
             item.setTextColor(Color.parseColor("#000000"));
         }
-//        setting.setTypeface(iconfont);
+////        setting.setTypeface(iconfont);
         setting.setOnClickListener(this);
         defaultFragment();
     }
@@ -76,17 +69,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.funny_pic:
                 listFragment = new ListFragment(1);
-                transaction.replace(R.id.container, listFragment);
+                transaction.replace(R.id.page_container, listFragment);
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.gif_pic:
                 listFragment = new ListFragment(3);
-                transaction.replace(R.id.container, listFragment);
+                transaction.replace(R.id.page_container, listFragment);
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.vision_pic:
                 listFragment = new ListFragment(5);
-                transaction.replace(R.id.container, listFragment);
+                transaction.replace(R.id.page_container, listFragment);
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             //设置
@@ -96,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             default:
                 listFragment = new ListFragment(1);
-                transaction.replace(R.id.container, listFragment);
+                transaction.replace(R.id.page_container, listFragment);
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
         }
@@ -106,8 +99,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void defaultFragment() {
         transaction = getFragmentManager().beginTransaction();
+//        HeaderFragment headerFragment = new HeaderFragment(drawerLayout);
+//        transaction.replace(R.id.page_header, headerFragment);
         ListFragment listFragment = new ListFragment(1);
-        transaction.replace(R.id.container, listFragment);
+        transaction.replace(R.id.page_container, listFragment);
         transaction.commit();
     }
 
